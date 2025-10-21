@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo RADIUS Authentication</title>
+  <link rel="stylesheet" href="nam1.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💻 Hệ thống RADIUS Authentication</h1>
+
+    <!-- Form đăng nhập -->
+    <div id="loginBox" class="box active">
+      <h2>Đăng nhập</h2>
+      <input type="text" id="loginUser" placeholder="Tài khoản">
+      <input type="password" id="loginPass" placeholder="Mật khẩu">
+      <button onclick="login()">Đăng nhập</button>
+      <p id="loginStatus"></p>
+      <div class="links">
+        <a href="#" onclick="showBox('registerBox')">Đăng ký</a> |
+        <a href="#" onclick="showBox('forgotBox')">Quên mật khẩu</a>
+      </div>
+    </div>
+
+    <!-- Form đăng ký -->
+    <div id="registerBox" class="box">
+      <h2>Đăng ký tài khoản mới</h2>
+      <input type="text" id="regUser" placeholder="Tài khoản mới">
+      <input type="password" id="regPass" placeholder="Mật khẩu">
+      <input type="password" id="regConfirm" placeholder="Xác minh mật khẩu">
+      <button onclick="register()">Đăng ký</button>
+      <p id="registerStatus"></p>
+      <div class="links">
+        <a href="#" onclick="showBox('loginBox')">Quay lại đăng nhập</a>
+      </div>
+    </div>
+
+    <!-- Form quên mật khẩu -->
+    <div id="forgotBox" class="box">
+      <h2>Quên mật khẩu</h2>
+      <input type="text" id="forgotUser" placeholder="Nhập tài khoản">
+      <input type="password" id="newPass" placeholder="Mật khẩu mới">
+      <input type="password" id="newConfirm" placeholder="Xác minh mật khẩu">
+      <button onclick="resetPassword()">Cập nhật mật khẩu</button>
+      <p id="forgotStatus"></p>
+      <div class="links">
+        <a href="#" onclick="showBox('loginBox')">Quay lại đăng nhập</a>
+      </div>
+    </div>
+
+    <!-- Trang mô phỏng RADIUS -->
+    <div id="radiusBox" class="box">
+      <h2>📡 RADIUS Accounting Simulation</h2>
+      <div id="processLog" class="log"></div>
+      <div class="radius-buttons">
+        <button onclick="startSession()">Bắt đầu phiên (Accounting Start)</button>
+        <button onclick="updateSession()">Cập nhật tạm thời</button>
+        <button onclick="stopSession()">Kết thúc phiên (Accounting Stop)</button>
+      </div>
+      <p><a href="#" onclick="logout()">↩ Đăng xuất</a></p>
+    </div>
+  </div>
+
+  <script src="radius.js"></script>
+</body>
+</html>
